@@ -2,7 +2,7 @@
 
 function renderStockTable() {
  		let table = "<table>";
- 		let header = prepareTableHeader();
+ 		let header = prepareTableHeader(["Název", "Kategorie", "Jednotka", "Cena"]);
  		table += header;
 
  		for (i = 0; i < stock.length; i++) {
@@ -14,10 +14,8 @@ function renderStockTable() {
  		document.getElementById("table-section").innerHTML = table;
  }
 
- function prepareTableHeader() {
+ function prepareTableHeader(titles) {
  	 	let header = "<tr>";
-
- 		let titles = ["Název", "Kategorie", "Jednotka", "Cena"];
 
  		for (let i = 0; i < 4 ; i++){
  			header += "<th>" + titles[i] + "</th>"
