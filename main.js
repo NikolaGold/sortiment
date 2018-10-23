@@ -37,10 +37,36 @@ function renderStockTable() {
  		return row;
  }
 
+function renderCategorySelect(categories){
+	let selectCategories = "<select>" +  "<option>" + "zvolte kategorii" + "</option>";
+		for(i = 0; i < categories.length; i++){
+		selectCategories += "<option>" + categories[i] + "</option>";
+		}
 
+	
+	selectCategories += "</select>"
+
+	document.getElementById("category-select-section").innerHTML = selectCategories
+}
+
+function getCategories(itemlist){
+	let categoriesGet = [];
+	for (let i = 0; i < stock.length; i++){
+		if(stock[i].category === stock[i].category)
+		categoriesGet.push(stock[i].category);
+ 	}
+ let uniqueCategoriesGet = categoriesGet.filter(function(item, pos) {
+    return categoriesGet.indexOf(item) == pos;
+})	
+return uniqueCategoriesGet
+}
 
 
 // nasledujúci príkaz nemeň, ale inak si rob v celom súbore, čo chceš =)
 window.onload = () => {
     renderStockTable(stock);
 }
+window.onload = () => {
+    renderCategorySelect(getCategories(stock));
+}
+
