@@ -40,7 +40,7 @@ function renderStockTable() {
 function renderCategorySelect(categories){
 	let selectCategories = "<select>" +  "<option>" + "zvolte kategorii" + "</option>";
 		for(i = 0; i < categories.length; i++){
-		selectCategories += "<option>" + categories[i] + "</option>";
+		selectCategories += "<option " + "value = " + categories[i] +  ">" + categories[i] + "</option>";
 		}
 
 	
