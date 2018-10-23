@@ -52,7 +52,7 @@ function renderCategorySelect(categories){
 function getCategories(itemlist){
 	let categoriesGet = [];
 	for (let i = 0; i < stock.length; i++){
-		if(stock[i].category === stock[i].category)
+		
 		categoriesGet.push(stock[i].category);
  	}
  let uniqueCategoriesGet = categoriesGet.filter(function(item, pos) {
@@ -65,8 +65,6 @@ return uniqueCategoriesGet
 // nasledujúci príkaz nemeň, ale inak si rob v celom súbore, čo chceš =)
 window.onload = () => {
     renderStockTable(stock);
-}
-window.onload = () => {
     renderCategorySelect(getCategories(stock));
 }
 
