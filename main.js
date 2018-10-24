@@ -40,7 +40,7 @@ function renderStockTable() {
 function renderCategorySelect(categories){
 	let selectCategories = "<select>" +  "<option>" + "zvolte kategorii" + "</option>";
 		for(i = 0; i < categories.length; i++){
-		selectCategories += "<option " + "value = " + categories[i] +  ">" + categories[i] + "</option>";
+		selectCategories += "<option value=" + categories[i] +  ">" + categories[i] + "</option>";
 		}
 
 	
@@ -50,21 +50,15 @@ function renderCategorySelect(categories){
 }
 
 function getCategories(itemlist){
-	let categoriesGet = [];
-	for (let i = 0; i < stock.length; i++){
-		
-		categoriesGet.push(stock[i].category);
- 	}
- let uniqueCategoriesGet = categoriesGet.filter(function(item, pos) {
-    return categoriesGet.indexOf(item) == pos;
-})	
-return uniqueCategoriesGet
+	let allCategories = itemList.map((item) => item.category)
+
+ 	let uniqueCategories = allCategories.filter(function(item, pos) {
+    	return allCategories.indexOf(item) == pos;
+	})	
+	return uniqueCategories
 }
 
-
-// nasledujúci príkaz nemeň, ale inak si rob v celom súbore, čo chceš =)
 window.onload = () => {
     renderStockTable(stock);
     renderCategorySelect(getCategories(stock));
 }
-
